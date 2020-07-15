@@ -13,5 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/articles', 'ArticlesController@index');
-Route::get('/articles/add', 'ArticlesController@add');
+
+
+Route::prefix('/{language}')->group(function () {
+    Route::get('/articles', 'ArticlesController@index');
+    Route::get('/articles/add', 'ArticlesController@add');
+});
